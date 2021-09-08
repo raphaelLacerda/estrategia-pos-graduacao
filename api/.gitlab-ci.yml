@@ -1,0 +1,9 @@
+image: docker:git
+services:
+  - docker:dind
+  - postgres
+
+build:
+  stage: build
+  script:
+    - docker build . -t mestrado

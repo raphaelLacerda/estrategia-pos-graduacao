@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    environment:
+      - "http.cors.allow-origin=*"
+    volumes:
+      - data01:/data
+    ports:
+      - 5200:5000
+  
+  front:
+    image: pos-estrategia-front
+    ports:
+      - 4200:80
+  
+  back:
+    image: pos-estrategia-api
+    ports:
+      - 8080:8080
+
+  registry: registry
+    ports:
+      - 5000:5000
+  
+volumes:
+  data01:
+    driver: local
+  

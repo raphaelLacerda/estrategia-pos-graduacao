@@ -1,0 +1,48 @@
+<div class="p-mt-4">
+  <p-card class="p-mt-4">
+    <ng-template pTemplate="header"> Faça o seu login </ng-template>
+    <div class="p-fluid p-jc-center">
+      <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+        <div class="card">
+          <div class="p-fluid p-formgrid p-grid p-jc-center">
+            <div class="p-fluid">
+              <div class="p-field">
+                <label for="firstname1">Login</label>
+                <input
+                  name="login"
+                  type="text"
+                  pInputText
+                  autofocus
+                  [(ngModel)]="usuario.login"
+                />
+              </div>
+              <div class="p-field">
+                <label for="lastname1">Senha</label>
+                <input
+                  type="password"
+                  name="password"
+                  pPassword
+                  [feedback]="true"
+                  [showPassword]="false"
+                  [(ngModel)]="usuario.password"
+                />
+              </div>
+              <div class="p-field">
+                <button
+                  pButton
+                  type="submit"
+                  class="p-button-raised p-button-rounded"
+                  icon="pi pi-fw pi-sign-in"
+                  label="Entrar"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </p-card>
+</div>
+
+
+

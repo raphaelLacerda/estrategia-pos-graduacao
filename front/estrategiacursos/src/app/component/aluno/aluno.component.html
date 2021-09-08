@@ -1,0 +1,70 @@
+<div class="p-mt-4">
+  <p-panel header="Cadastro" [toggleable]="true">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f)">
+      <div class="p-fluid p-formgrid p-grid p-jc-center">
+        <div class="p-field p-col-12">
+          <label>Nome:</label>
+          <input name="nome" type="text" pInputText [(ngModel)]="objeto.nome" />
+        </div>
+        <div class="p-field p-col-12">
+          <label>Email:</label>
+          <input
+            name="email"
+            type="email"
+            pInputText
+            [(ngModel)]="objeto.email"
+          />
+        </div>
+        <div class="p-field p-col-3">
+          <button
+            pButton
+            type="submit"
+            class="p-button-raised p-button-rounded"
+            icon="pi pi-fw pi-save"
+            label="Salvar"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </p-panel>
+</div>
+
+<div class="card">
+  <p-panel header="Listagem" [toggleable]="true">
+    <p-table [value]="objetos">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="nome">
+            Nome <p-sortIcon field="code"></p-sortIcon>
+          </th>
+          <th pSortableColumn="email">
+            Email <p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th>Opções</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-elemento>
+        <tr>
+          <td>{{ elemento.nome }}</td>
+          <td>{{ elemento.email }}</td>
+          <td>
+            <button
+              pButton
+              type="button"
+              title="Editar"
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-outlined p-button-info"
+              (click)="editar(elemento)"
+            ></button>
+            <button
+              pButton
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-outlined p-button-danger p-ml-2"
+              (click)="remover(elemento)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+</div>

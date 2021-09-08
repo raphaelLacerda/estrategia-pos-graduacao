@@ -1,0 +1,68 @@
+<div class="p-mt-4">
+  <p-panel header="Grade de Concursos" [toggleable]="true">
+    <div class="p-fluid p-formgrid p-grid p-jc-center">
+      <div class="p-field p-col-12">
+        <label>Concursos</label>
+        <p-dropdown
+          inputId="state"
+          [options]="concursos"
+          [(ngModel)]="concursoSelecionado"
+          name="concurso"
+          placeholder="Qual concurso vc quer montar a grade?"
+          optionLabel="nome"
+          (onChange)="filtrarDisciplicasDoConcursoSelecionado()"
+        ></p-dropdown>
+      </div>
+    </div>
+  </p-panel>
+</div>
+
+<div *ngIf="concursoSelecionado" class="p-grid p-mt-3">
+  <div class="p-col-12">
+    <p-pickList
+      [source]="disciplinas"
+      [target]="concursoSelecionado.disciplinas"
+      sourceHeader="Disponíveis"
+      targetHeader="Selecionados"
+      [dragdrop]="true"
+      [responsive]="true"
+      [sourceStyle]="{ 'max-height': '30rem' }"
+      [targetStyle]="{ 'max-height': '30rem' }"
+      filterBy="nome"
+      sourceFilterPlaceholder="Digite nome do curso"
+      targetFilterPlaceholder="Digite nome do curso"
+    >
+      <ng-template let-d pTemplate="item">
+        <div class="product-item">
+          <div class="image-container">
+            <img src="assets/coruja.jpg" [alt]="d.nome" class="product-image" />
+          </div>
+          <div class="product-list-detail">
+            <h5 class="p-mb-2">{{ d.nome }}</h5>
+            <i class="pi pi-tag product-category-icon"></i>
+            <span class="product-category">{{ d.professor.nome }}</span>
+          </div>
+          <div class="product-list-action">
+            <h6 class="p-mb-2">{{ d.preco | currency: "BRL" }}</h6>
+            <p-tag value="disponível" icon="pi pi-book" severity="success"></p-tag>
+          </div>
+        </div>
+      </ng-template>
+    </p-pickList>
+  </div>
+</div>
+
+<div *ngIf="concursoSelecionado"  class="p-fluid p-formgrid p-grid p-jc-center p-mt-3">
+  <div class="p-field p-col-3">
+    <button
+      pButton
+      type="submit"
+      class="p-button-raised p-button-rounded"
+      icon="pi pi-fw pi-save"
+      label="Salvar"
+      (click)="atualizarConcurso()"
+    ></button>
+  </div>
+</div>
+
+
