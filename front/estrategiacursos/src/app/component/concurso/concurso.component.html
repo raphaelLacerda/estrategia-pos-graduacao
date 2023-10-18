@@ -13,6 +13,13 @@
             [(ngModel)]="objeto.dataDaProva"
           ></p-calendar>
         </div>
+        <div class="p-field p-col-12">
+          <label>Dia do Lançamento:</label>
+          <p-calendar
+            name="dataDaProva"
+            [(ngModel)]="objeto.diaDoLancamento"
+          ></p-calendar>
+        </div>
         <div class="p-field p-col-3">
           <button
             pButton
@@ -49,8 +56,8 @@
           <td>{{ elemento.nome }}</td>
           <td>{{ elemento.dataDaProva }}</td>
           <td>{{ elemento.diaDoLancamento }}</td>
-          <td>{{ elemento.valorBruto }}</td>
-          <td>{{ elemento.valor }}</td>
+          <td>{{ elemento.valorBruto | currency: "BRL" }}</td>
+          <td>{{ elemento.valor | currency: "BRL" }}</td>
           <td>
             <button
               pButton

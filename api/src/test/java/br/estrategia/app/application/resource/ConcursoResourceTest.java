@@ -1,6 +1,5 @@
 package br.estrategia.app.application.resource;
 
-import br.estrategia.app.domain.model.DescontoBlackFriday;
 import br.estrategia.app.domain.model.entidade.Concurso;
 import br.estrategia.app.domain.model.entidade.Disciplina;
 import br.estrategia.app.domain.repository.ConcursoRepository;
@@ -37,7 +36,7 @@ class ConcursoResourceTest extends AbstractAPITesting {
     }
 
     @Test
-    public void deve_salvar_concurso() {
+    public void deve_atualizar_concurso_com_disciplinas_e_calcular_valor_de_desconto() {
 
         Concurso concurso = new Concurso("PF", LocalDate.now());
         Disciplina admFinal = disciplinaRepository.save(new Disciplina("adm", new BigDecimal("100")));
@@ -54,7 +53,6 @@ class ConcursoResourceTest extends AbstractAPITesting {
                 .expectStatus().isCreated().expectBody(Concurso.class)
                 .value(c -> {
                     assertTrue(c.getId() > 0);
-                    c.setDesconto(new DescontoBlackFriday());
                     c.adicionarDisciplina(admFinal);
                     c.adicionarDisciplina(constitucionalFinal);
 
@@ -65,8 +63,8 @@ class ConcursoResourceTest extends AbstractAPITesting {
                             .exchange()
                             .expectStatus().isOk().expectBody(Concurso.class)
                             .value(concursoAtualizado -> {
-                                concursoAtualizado.setDesconto(new DescontoBlackFriday());
                                 assertEquals(2, concursoAtualizado.getDisciplinas().size());
+                                assertEquals(new BigDecimal("300.00"), concursoAtualizado.getValorBruto());
                                 assertEquals(new BigDecimal("90.00"), concursoAtualizado.getValor());
                             });
                 });

@@ -16,6 +16,7 @@
 package br.estrategia.app.application.resource;
 
 import br.estrategia.app.application.resource.suporte.AbstractRestBaseController;
+import br.estrategia.app.domain.model.Desconto;
 import br.estrategia.app.domain.model.entidade.Concurso;
 import br.estrategia.app.domain.repository.ConcursoRepository;
 import br.estrategia.app.infra.rest.URI_API_PATHS;
@@ -24,12 +25,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = URI_API_PATHS.CONCURSOS_API)
@@ -38,10 +38,29 @@ public class ConcursoResource extends AbstractRestBaseController<Concurso, Long>
     @Autowired
     private ConcursoRepository concursoRepository;
 
+//    @Autowired
+//    private IDescontoGateway descontoService;
+
+    @Autowired
+    private Desconto desconto;
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "disponiveis")
     public ResponseEntity<Collection<Concurso>> listarConcursosDisponiveis() {
 
         return new ResponseEntity(concursoRepository.listarConcursosDisponiveis(LocalDate.now()), HttpStatus.OK);
+    }
+
+    @Override
+    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Concurso> update(@PathVariable("id") Long id, @RequestBody Concurso concursoAtualizado) {
+        Optional<Concurso> objeto = getRepositorio().findById(id);
+        if (objeto.isPresent() && !objeto.get().getValorBruto().equals(concursoAtualizado.getValorBruto())) {
+            concursoAtualizado.setDesconto(desconto);
+            Concurso novoConcurso = getRepositorio().save(concursoAtualizado);
+
+            return new ResponseEntity(novoConcurso, HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
     @Override

@@ -2,14 +2,18 @@ package br.estrategia.app.domain.model;
 
 import br.estrategia.app.domain.model.entidade.Concurso;
 import br.estrategia.app.domain.model.entidade.Disciplina;
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+@ExtendWith(SerenityJUnit5Extension.class)
 class ConcursoTest {
 
     private Concurso concurso;
@@ -19,7 +23,7 @@ class ConcursoTest {
         concurso = new Concurso();
     }
 
-    //Colocar um BUG na implementação > que ao invés de >= no adicionarDisciplina
+
     @Test
     public void deve_gerar_desconto_de_20_porcento_quando_houver_20_disciplinas(){
         for (int i = 0; i < 20; i++) {
@@ -27,6 +31,8 @@ class ConcursoTest {
             disciplina.setPreco(new BigDecimal("10"));
             concurso.adicionarDisciplina(disciplina);
         }
+        concurso.aplicarDesconto();
+        assertEquals(new BigDecimal("200.00"), concurso.getValorBruto());
         assertEquals(new BigDecimal("160.00"), concurso.getValor());
     }
 
@@ -34,10 +40,12 @@ class ConcursoTest {
     public void deve_gerar_desconto_de_20_porcento_quando_houver_mais_de_20_disciplinas(){
         for (int i = 0; i < 30; i++) {
             Disciplina disciplina = new Disciplina();
-            disciplina.setPreco(new BigDecimal("10.181"));
+            disciplina.setPreco(new BigDecimal("10"));
             concurso.adicionarDisciplina(disciplina);
         }
-        assertEquals(new BigDecimal("244.32"), concurso.getValor());
+        concurso.aplicarDesconto();
+        assertEquals(new BigDecimal("300.00"), concurso.getValorBruto());
+        assertEquals(new BigDecimal("240.00"), concurso.getValor());
     }
 
     @Test
@@ -47,6 +55,7 @@ class ConcursoTest {
             disciplina.setPreco(new BigDecimal("10"));
             concurso.adicionarDisciplina(disciplina);
         }
+        concurso.aplicarDesconto();
         assertEquals(new BigDecimal("90.00"), concurso.getValor());
     }
 
@@ -57,6 +66,7 @@ class ConcursoTest {
             disciplina.setPreco(new BigDecimal("10"));
             concurso.adicionarDisciplina(disciplina);
         }
+        concurso.aplicarDesconto();
         assertEquals(new BigDecimal("85.50"), concurso.getValor());
     }
 
@@ -66,20 +76,24 @@ class ConcursoTest {
         Disciplina disciplina = new Disciplina();
         disciplina.setPreco(new BigDecimal("100"));
         concurso.adicionarDisciplina(disciplina);
-        concurso.setDesconto(new DescontoPandemia());
         concurso.setDiaDoLancamento(LocalDate.of(2020, 10, 10));
+
+        concurso.setDesconto(new DescontoPandemia());
+
+        assertEquals(new BigDecimal("100.00"), concurso.getValorBruto());
         assertEquals(new BigDecimal("50.00"), concurso.getValor());
     }
     @Test
     public void nao_deve_gerar_desconto_de_50_porcento_para_concursos_diferente_de_2020(){
 
-        concurso.setDesconto(new DescontoPandemia());
-
         concurso.setDiaDoLancamento(LocalDate.of(2021, 10, 10));
         Disciplina disciplina = new Disciplina();
         disciplina.setPreco(new BigDecimal("100"));
         concurso.adicionarDisciplina(disciplina);
-//        assertEquals(new BigDecimal("100.00"), concurso.getValor());
+
+        concurso.setDesconto(new DescontoPandemia());
+
+        assertEquals(new BigDecimal("100.00"), concurso.getValorBruto());
         assertEquals(new BigDecimal("95.00"), concurso.getValor());
 
     }
@@ -90,19 +104,23 @@ class ConcursoTest {
         Disciplina disciplina = new Disciplina();
         disciplina.setPreco(new BigDecimal("100"));
         concurso.adicionarDisciplina(disciplina);
-        concurso.setDesconto(new DescontoBlackFriday());
         concurso.setDiaDoLancamento(LocalDate.of(2020, 11, 10));
+
+        concurso.setDesconto(new DescontoBlackFriday());
+
+        assertEquals(new BigDecimal("100.00"), concurso.getValorBruto());
         assertEquals(new BigDecimal("30.00"), concurso.getValor());
     }
 
-    //Não esquecer do setScale no setPreco para o ValorBruto ser igual ao Valor Líquido
     @Test
     public void caso_nao_seja_black_friday_deve_aplicar_desconto_de_disciplinas(){
         Disciplina disciplina = new Disciplina();
         disciplina.setPreco(new BigDecimal("100"));
         concurso.adicionarDisciplina(disciplina);
-        concurso.setDesconto(new DescontoBlackFriday());
         concurso.setDiaDoLancamento(LocalDate.of(2020, 10, 10));
+
+        concurso.setDesconto(new DescontoBlackFriday());
+
         assertEquals(new BigDecimal("95.00"), concurso.getValor());
     }
 

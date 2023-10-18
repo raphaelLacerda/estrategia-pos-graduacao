@@ -39,7 +39,7 @@ class AlunoResourceTest extends AbstractAPITesting {
                 .body(BodyInserters.fromValue(aluno))
                 .exchange()
                 .expectStatus().isCreated().expectBody(Aluno.class)
-                .value(c -> assertTrue(c.getId() > 0));
+                .value(c -> assertTrue(c.getNome().equals("rafa")));
     }
 
     @Test

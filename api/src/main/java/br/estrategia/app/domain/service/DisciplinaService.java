@@ -1,6 +1,6 @@
 package br.estrategia.app.domain.service;
 
-import br.estrategia.app.domain.excecao.ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException;
+import br.estrategia.app.domain.exception.ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException;
 import br.estrategia.app.domain.model.entidade.Disciplina;
 import br.estrategia.app.domain.repository.DisciplinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

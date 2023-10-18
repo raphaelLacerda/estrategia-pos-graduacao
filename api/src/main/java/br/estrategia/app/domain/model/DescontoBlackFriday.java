@@ -1,11 +1,13 @@
 package br.estrategia.app.domain.model;
 
 import br.estrategia.app.domain.model.entidade.Concurso;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
 
 //Este IF não tem como retirar é um IF de CONDIÇÃO e não de OPÇÃO
+@Component
 public class DescontoBlackFriday implements Desconto {
     @Override
     public BigDecimal aplicar(Concurso concurso) {
@@ -14,5 +16,10 @@ public class DescontoBlackFriday implements Desconto {
         }
         return BigDecimal.ZERO;
 
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getCanonicalName();
     }
 }

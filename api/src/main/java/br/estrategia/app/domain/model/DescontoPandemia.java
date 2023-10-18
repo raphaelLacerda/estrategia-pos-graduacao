@@ -13,4 +13,9 @@ public class DescontoPandemia implements Desconto {
         return BigDecimal.ZERO;
 
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getCanonicalName();
+    }
 }

@@ -1,8 +1,7 @@
-import { environment } from './../../environments/environment';
-import { Usuario } from './../model/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { environment } from './../../environments/environment';
+import { Usuario } from './../model/usuario.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +14,7 @@ export class LoginService {
       const r: any = await this.http
         .post<Usuario>(environment.SERVICO_LOGIN, usuario)
         .toPromise();
+      console.log('LOGIN REALIZADO');
       console.log(r);
       localStorage.setItem('token', r.token);
       return true;

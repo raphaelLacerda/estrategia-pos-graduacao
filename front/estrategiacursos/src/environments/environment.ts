@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   SERVICO_LOGIN: 'http://localhost:3000/login',
-  SERVICO_ESTRATEGIA: 'http://localhost:8080'
+  SERVICO_ESTRATEGIA: 'http://localhost:9090',
 };
 
 /*

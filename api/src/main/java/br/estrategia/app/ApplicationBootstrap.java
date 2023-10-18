@@ -2,12 +2,12 @@ package br.estrategia.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 //@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @SpringBootApplication()
+//@EnableDiscoveryClient
+//@EnableEurekaClient
+//@EnableFeignClients
 public class ApplicationBootstrap {
 
 	public static void main(String[] args) {
@@ -15,11 +15,11 @@ public class ApplicationBootstrap {
 	}
 
 
+//	@Bean @LoadBalanced
+//	public RestTemplate getRestTemplate() {
+//		return new RestTemplate();
+//	}
 
-	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
-		return builder.build();
-	}
 
 
 }

@@ -1,8 +1,8 @@
-import { LoginService } from './../../service/login.service';
-import { Usuario } from './../../model/usuario.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { Usuario } from './../../model/usuario.model';
+import { LoginService } from './../../service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -28,11 +28,22 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit() {
-    const r = await this.loginService.logar(this.usuario);
-    if (r) {
-      this.router.navigate(['home']);
-    } else {
-      this.messageService.add({severity:'error', summary:'Erro no login', detail:'Login Inválido'});
+    try {
+      console.log('inicando login');
+      const r = await this.loginService.logar(this.usuario);
+      console.log('login realizado com sucesso');
+      if (r) {
+        this.router.navigate(['home']);
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erro no login',
+          detail: 'Login Inválido',
+        });
+      }
+    } catch (e) {
+      console.log('Erro ao fazer o login');
+      console.log(e);
     }
   }
 }

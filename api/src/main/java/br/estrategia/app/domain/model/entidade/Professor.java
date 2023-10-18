@@ -1,10 +1,10 @@
 package br.estrategia.app.domain.model.entidade;
 
-import javax.validation.constraints.NotNull;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -12,7 +12,7 @@ import java.util.Objects;
 public class Professor {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
     private String nome;
@@ -62,5 +62,10 @@ public class Professor {
     @Override
     public int hashCode() {
         return Objects.hash(id, nome, salario);
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 }

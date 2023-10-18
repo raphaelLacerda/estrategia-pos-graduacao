@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb3c4677-c428-4621-8896-63c9b5a16578" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/src/main/java/br/estrategia/app/ApplicationBootstrap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/src/main/java/br/estrategia/app/infra/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/src/main/java/br/estrategia/app/model/Desconto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/src/main/java/br/estrategia/app/model/TipoDesconto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/src/main/java/br/estrategia/app/resource/DescontoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CalculadoraDescontos/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/src/main/java/br/ZuulGateway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ZullApiGateway/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/gateway/DescontoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/gateway/IDescontoGateway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/src/main/java/estrategia/ConfigServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-server/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/EurekaServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/ApplicationBootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/ApplicationBootstrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/application/resource/ConcursoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/application/resource/ConcursoResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/application/resource/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/application/resource/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/excecao/ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/exception/ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Aluno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Concurso.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Concurso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Disciplina.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Disciplina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Matricula.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Matricula.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/model/entidade/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/service/DisciplinaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/domain/service/DisciplinaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/infra/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/infra/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/infra/security/StalessAutheticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/java/br/estrategia/app/infra/security/StalessAutheticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/application/resource/AlunoResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/application/resource/AlunoResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/application/resource/ConcursoResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/application/resource/ConcursoResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/domain/model/ConcursoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/domain/model/ConcursoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/domain/service/DisciplinaServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/domain/service/DisciplinaServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/util/AbstractAPITesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api/src/test/java/br/estrategia/app/util/AbstractAPITesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/src/app/component/concurso/concurso.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/src/app/component/concurso/concurso.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/src/app/component/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/src/app/component/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/src/app/component/matricula/matricula.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/src/app/component/matricula/matricula.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/src/app/interceptor/interceptor.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/src/app/interceptor/interceptor.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/src/app/service/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/src/app/service/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/estrategiacursos/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../front/estrategiacursos/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../infra/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../infra/docker-compose.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../../libs/apache-maven-3.8.1/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2FqzWoausKBMRXDOwqyRgJZI4tj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.br.EurekaServer">
+    <configuration name="ZuulAPIGatewayServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.ZuulAPIGatewayServer" />
+      <module name="eureka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="br.EurekaServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.EurekaServer" />
+      <module name="eureka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.br.EurekaServer" />
+        <item itemvalue="Application.ZuulAPIGatewayServer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb3c4677-c428-4621-8896-63c9b5a16578" name="Changes" comment="" />
+      <created>1665234436693</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665234436693</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

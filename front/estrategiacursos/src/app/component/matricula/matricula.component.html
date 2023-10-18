@@ -22,7 +22,15 @@
             name="concurso"
             placeholder="Qual concurso vc quer se matricular?"
             optionLabel="nome"
-          ></p-dropdown>
+          >
+            <ng-template let-concurso pTemplate="item">
+              <div>
+                {{ concurso.nome }} - Total Bruto:
+                {{ concurso.valorBruto | currency: "BRL" }} - Total Líquido
+                {{ concurso.valor | currency: "BRL" }}
+              </div>
+            </ng-template>
+          </p-dropdown>
         </div>
         <div class="p-field p-col-3">
           <button
@@ -56,10 +64,10 @@
       </ng-template>
       <ng-template pTemplate="body" let-elemento>
         <tr>
-          <td>{{ elemento.concurso.nome}}</td>
-          <td>{{ elemento.aluno.nome}}</td>
-          <td>{{ elemento.dataEfetivacao}}</td>
-          <td>{{ elemento.acessoPermitido}}</td>
+          <td>{{ elemento.concurso.nome }}</td>
+          <td>{{ elemento.aluno.nome }}</td>
+          <td>{{ elemento.dataEfetivacao }}</td>
+          <td>{{ elemento.acessoPermitido }}</td>
           <td>
             <button
               pButton

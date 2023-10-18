@@ -13,4 +13,5 @@ public interface Desconto {
                 .multiply(desconto)
                 .divide(new BigDecimal(100));
     }
+
 }

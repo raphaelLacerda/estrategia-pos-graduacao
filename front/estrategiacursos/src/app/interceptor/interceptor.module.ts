@@ -1,14 +1,13 @@
-import { LoginService } from '../service/login.service';
-import { Injectable, NgModule } from '@angular/core';
-import { Observable, throwError, of } from 'rxjs';
 import {
   HttpEvent,
-  HttpInterceptor,
   HttpHandler,
+  HttpInterceptor,
   HttpRequest,
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { Injectable, NgModule } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoginService } from '../service/login.service';
 
 @Injectable()
 export class HttpsRequestInterceptor implements HttpInterceptor {
@@ -18,20 +17,32 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-
     if (!this.loginService.isLogado()) {
       return next.handle(request);
     }
-    return next
-      .handle(
-        request.clone({
-          setHeaders: {
-            // Authorization: this.loginService.getToken(),
-            'Content-Type': 'application/json',
-          },
-        })
-      )
-      .pipe() as Observable<HttpEvent<any>>;
+
+    if (this.loginService.getToken()) {
+      return next
+        .handle(
+          request.clone({
+            setHeaders: {
+              Authorization: this.loginService.getToken(),
+              'Content-Type': 'application/json',
+            },
+          })
+        )
+        .pipe() as Observable<HttpEvent<any>>;
+    } else {
+      return next
+        .handle(
+          request.clone({
+            setHeaders: {
+              'Content-Type': 'application/json',
+            },
+          })
+        )
+        .pipe() as Observable<HttpEvent<any>>;
+    }
   }
 }
 

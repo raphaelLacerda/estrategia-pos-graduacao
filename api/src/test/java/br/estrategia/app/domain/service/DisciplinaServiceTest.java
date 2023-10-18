@@ -1,6 +1,6 @@
 package br.estrategia.app.domain.service;
 
-import br.estrategia.app.domain.excecao.ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException;
+import br.estrategia.app.domain.exception.ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException;
 import br.estrategia.app.domain.model.entidade.Disciplina;
 import br.estrategia.app.domain.model.entidade.Professor;
 import br.estrategia.app.domain.repository.ProfessorRepository;
@@ -11,9 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -59,7 +57,6 @@ class DisciplinaServiceTest {
     public void nao_deve_salvar_disciplina_se_professor_esta_associado_a_mais_de_duas_disciplinas(){
         deve_salvar_disciplina_com_professor_que_esta_associado_a_ate_duas_disciplinas();
         assertThrows(ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException.class,  ()->{
-            System.out.println("inicio");
             disciplinaService.save(new Disciplina("terceira", new BigDecimal("10"), professor));
         });
         assertEquals(2, disciplinaService.getDisciplinaRepository().findByProfessor(professor).size());

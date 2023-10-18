@@ -3,13 +3,7 @@ package br.estrategia.app.domain.model.entidade;
 import br.estrategia.app.domain.model.Desconto;
 import br.estrategia.app.domain.model.DescontoQuantidadeDisciplina;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -21,14 +15,14 @@ import java.util.List;
 public class Concurso {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
     private String nome;
     private LocalDate diaDoLancamento = LocalDate.now();
     @NotNull
     private LocalDate dataDaProva;
-
+    private BigDecimal valorLiquido;
     @Transient
     private Desconto desconto = new DescontoQuantidadeDisciplina();
 
@@ -37,6 +31,25 @@ public class Concurso {
             @JoinColumn(name = "id_disciplina")})
     private List<Disciplina> disciplinas = new ArrayList<>();
 
+
+    public void aplicarDesconto(){
+        if (desconto != null
+                && this.valorLiquido == null
+                && this.getValorBruto().compareTo(BigDecimal.ZERO)>0) {
+
+            BigDecimal valorBruto = this.getValorBruto();
+
+            this.valorLiquido = valorBruto
+                    .subtract(desconto.aplicar(this))
+                    .setScale(2, RoundingMode.HALF_UP);
+
+            if (valorBruto.equals(this.valorLiquido)) {
+                this.valorLiquido = valorBruto
+                        .subtract(new DescontoQuantidadeDisciplina().aplicar(this))
+                        .setScale(2, RoundingMode.HALF_UP);
+            }
+        }
+    }
 
     public Concurso() {
     }
@@ -84,19 +97,13 @@ public class Concurso {
 //                .setScale(2, RoundingMode.HALF_UP);
 //    }
 
-    public BigDecimal getValor() {
-        BigDecimal valorBruto = this.getValorBruto();
 
-        BigDecimal valorLiquido = valorBruto
-                .subtract(desconto.aplicar(this))
-                .setScale(2, RoundingMode.HALF_UP);
-
-        if(valorBruto.equals(valorLiquido)){
-            return valorBruto
-                    .subtract(new DescontoQuantidadeDisciplina().aplicar(this))
-                    .setScale(2, RoundingMode.HALF_UP);
-        }
+    public BigDecimal getValorLiquido() {
         return valorLiquido;
+    }
+
+    public BigDecimal getValor(){
+        return this.getValorLiquido();
     }
 
     public BigDecimal getValorBruto() {
@@ -127,5 +134,10 @@ public class Concurso {
 
     public void setDesconto(Desconto desconto) {
         this.desconto = desconto;
+        this.aplicarDesconto();
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 }

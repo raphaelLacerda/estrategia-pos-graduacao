@@ -6,8 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-	@RequestMapping("/ola")
+//	@Autowired
+//	private IDescontoGateway descontoService;
+
+	@RequestMapping("/api/v1/hello")
 	public String index() {
+//		return "Olá mundo" + descontoService.aplicarDesconto(new BigDecimal(100)).getTipoDesconto();
 		return "Olá mundo";
 	}
 

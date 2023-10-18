@@ -20,4 +20,9 @@ public class DescontoQuantidadeDisciplina implements Desconto {
         return this.calcular(concurso.getValorBruto(), desconto);
 
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getCanonicalName();
+    }
 }
