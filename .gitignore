@@ -6,3 +6,5 @@ build
 target
 jar
 node_modules
+war
+build

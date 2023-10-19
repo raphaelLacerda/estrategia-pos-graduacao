@@ -37,6 +37,7 @@ public class CadastroDisciplinaBDDTest {
         int totalDisciplinas = Integer.parseInt(disciplinas);
         if (totalDisciplinas == 0) {
             this.disciplina.setProfessor(null);
+            return;
         }
         Professor professor = professorRepository.save(new Professor("rafa"));
         for (int i = 0; i < totalDisciplinas; i++) {

@@ -15,11 +15,10 @@ public class DisciplinaService {
     private DisciplinaRepository disciplinaRepository;
 
 
-    public Disciplina save(Disciplina disciplina){
-
-        if(disciplina.possuiProfessor()){
+    public Disciplina save(Disciplina disciplina) {
+        if (disciplina.possuiProfessor()) {
             Set<Disciplina> disciplinasDoProfessor = disciplinaRepository.findByProfessor(disciplina.getProfessor());
-            if(disciplinasDoProfessor.size()>=2){
+            if (disciplinasDoProfessor.size() >= 2) {
                 throw new ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException();
             }
         }

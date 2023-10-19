@@ -3,6 +3,7 @@ package br.estrategia.app.domain.service;
 import br.estrategia.app.domain.exception.ProfessorNaoPodeMinistrarMaisDeDuasDisciplinasException;
 import br.estrategia.app.domain.model.entidade.Disciplina;
 import br.estrategia.app.domain.model.entidade.Professor;
+import br.estrategia.app.domain.repository.ConcursoRepository;
 import br.estrategia.app.domain.repository.ProfessorRepository;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.annotations.Steps;
@@ -29,6 +30,9 @@ class CadastroDeDisciplinaBDDSerenityTest {
     private DisciplinaService disciplinaService;
 
     @Autowired
+    private ConcursoRepository concursoRepository;
+
+    @Autowired
     private ProfessorRepository professorRepository;
     private Professor professor;
 
@@ -37,6 +41,7 @@ class CadastroDeDisciplinaBDDSerenityTest {
 
     @BeforeEach
     public void clean(){
+        concursoRepository.deleteAll();
         disciplinaService.getDisciplinaRepository().deleteAll();
         professorRepository.deleteAll();
         professor = professorRepository.save(new Professor("rafa"));
